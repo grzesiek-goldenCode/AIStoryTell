@@ -21,3 +21,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 ## About
 
 Simple App to write stories for kids with AI
+
+## ToDo
+
+Opcja personalizacji - imię dziecka żeby bajka była bardziej personalizowana

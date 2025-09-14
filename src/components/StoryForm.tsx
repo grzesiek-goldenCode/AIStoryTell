@@ -36,20 +36,20 @@ export default function StoryForm({ onGenerate }: Props) {
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Imię bohatera"
-        className="border p-2"
+        className="input-element"
       />
       <input
         name="theme"
         value={theme}
         onChange={(e) => setTheme(e.target.value)}
         placeholder="Temat bajki"
-        className="border p-2"
+        className="input-element"
       />
       <select
         name="age"
         value={age}
         onChange={(e) => setAge(e.target.value)}
-        className="border p-2"
+        className="input-element"
       >
         <option>Podaj wiek dziecka</option>
         <option value="3">3 lata</option>
@@ -58,7 +58,7 @@ export default function StoryForm({ onGenerate }: Props) {
         <option value="10">10 lat</option>
       </select>
       <Button>Stwórz bajkę!</Button>
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+      {error && <p className="text-red-500 text-sm m-3">{error}</p>}
     </form>
   );
 }

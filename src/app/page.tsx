@@ -9,7 +9,7 @@ export default function Home() {
           <h1 className="text-4xl m-3 ">Opowiem Ci Bajkę!</h1>
           <p className="text-md">Kliknij przycisk aby wejść do świata bajek</p>
           <p className="text-md">
-            Możesz stworzyć specjalnie dla Twojego dziecka
+            Bajka tworzona specjalnie dla Twojego dziecka!
           </p>
         </div>
         <div>

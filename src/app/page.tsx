@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-      <main className="flex flex-col items-center justify-center h-[100vh]">
+      <main className="flex flex-col items-center justify-center h-[90vh]">
         <div className="flex flex-col items-center justify-center m-2">
           <h1 className="text-4xl m-3 ">Opowiem Ci Bajkę!</h1>
           <p className="text-md">Kliknij przycisk aby wejść do świata bajek</p>

@@ -4,6 +4,8 @@ import { Cinzel_Decorative } from "next/font/google";
 import { Amatic_SC } from "next/font/google";
 import "./globals.css";
 
+import MainHeader from "@/components/main-header/header";
+
 const cinzel = Cinzel_Decorative({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -17,7 +19,7 @@ const amaticSC = Amatic_SC({
 });
 
 export const metadata: Metadata = {
-  title: "Kreator Bajek ",
+  title: "Pracownia Opowieści",
   description: "Bajki dla dzieci na każda okazje",
 };
 
@@ -28,7 +30,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${cinzel.className} antialiased`}>{children}</body>
+      <body className={` ${cinzel.className} antialiased`}>
+        <MainHeader></MainHeader>
+        <main>{children}</main>
+        <footer></footer>
+      </body>
     </html>
   );
 }

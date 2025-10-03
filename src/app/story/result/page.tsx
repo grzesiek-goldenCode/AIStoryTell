@@ -7,7 +7,18 @@ import MobileView from "@/components/MobileView";
 import NormalView from "@/components/NormalView";
 
 export default function StoryView() {
-  const story = sampleStory.split("\n\n");
+  const [story, setStory] = useState<string[] | null>([
+    "Pracujemy nad Twoją bajką...",
+  ]);
+
+  useEffect(() => {
+    const savedStory = localStorage.getItem("story");
+    if (savedStory) {
+      const spiltStory = savedStory?.split("\n\n");
+      setStory(spiltStory);
+    }
+  }, []);
+
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -17,5 +28,13 @@ export default function StoryView() {
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  return isMobile ? <MobileView story={story} /> : <NormalView story={story} />;
+  if (story !== null) {
+    return isMobile ? (
+      <MobileView story={story} />
+    ) : (
+      <NormalView story={story} />
+    );
+  } else {
+    return <h2>Wystąpił błąd, pracujemy nad tym!</h2>;
+  }
 }

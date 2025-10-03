@@ -2,10 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/Button";
-
-type StoryProps = {
-  story: string[];
-};
+import { StoryProps } from "@/types";
 
 export default function NormalView({ story }: StoryProps) {
   const [index, setActiveIndex] = useState(0);

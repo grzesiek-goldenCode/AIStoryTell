@@ -9,16 +9,15 @@ export default function StoryPage() {
     theme: string;
     age: string;
   }) {
-    // Turned off for test!
+    const res = await fetch("api/generate-story", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    const result = await res.json();
 
-    // const res = await fetch("api/generate-story", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(data),
-    // });
-    // const result = await res.json();
+    localStorage.setItem("story", result);
 
-    // .......................
     router.push("/story/result");
   }
   return (

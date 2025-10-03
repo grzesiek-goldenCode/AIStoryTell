@@ -5,14 +5,11 @@ import { useRef } from "react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/virtual";
-import Button from "./Button";
+import { StoryProps } from "@/types";
 
-type MobileProps = {
-  story: string[];
-};
-
-export default function MobileView({ story }: MobileProps) {
+export default function MobileView({ story }: StoryProps) {
   const swiperRef = useRef<any>(null);
+
   return (
     <div className="flex flex-col items-center justify-center ">
       <h2 className="mt-10 text-4xl font-bold">Twoja bajka</h2>
@@ -41,7 +38,9 @@ export default function MobileView({ story }: MobileProps) {
                     }`}
                   >
                     <div
-                      className={` text-4xl pt-3 h-full mb-0
+                      className={` text-4xl pt-3 h-full mb-0 ${
+                        i === story.length - 1 ? "font-bold" : ""
+                      }
                       `}
                     >
                       {fragment}

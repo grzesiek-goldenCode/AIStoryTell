@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/Button";
 import { StoryProps } from "@/types";
 
-export default function NormalView({ story }: StoryProps) {
+export default function NormalView({ story, title }: StoryProps) {
   const [index, setActiveIndex] = useState(0);
 
   function prev() {
@@ -20,7 +20,7 @@ export default function NormalView({ story }: StoryProps) {
   }
   return (
     <div className="flex flex-col items-center justify-center ">
-      <h2 className="mt-10 text-4xl font-bold">Twoja bajka</h2>
+      <h2 className="mt-10 text-4xl font-bold">{title}</h2>
       <div className="w-full mx-100 flex justify-evenly items-center h-[70vh]">
         <div
           className={`glass-card ${

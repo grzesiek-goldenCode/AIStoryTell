@@ -1,4 +1,3 @@
-import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Virtual } from "swiper/modules";
 import { useRef } from "react";

@@ -37,14 +37,20 @@ export default function StoryForm({ onGenerate }: Props) {
         onChange={(e) => setName(e.target.value)}
         placeholder="Imię bohatera"
         className="input-element"
+        maxLength={30}
       />
+      {name.length > 25 && <p className="text-red-400">{name.length} / 30</p>}
       <input
         name="theme"
         value={theme}
         onChange={(e) => setTheme(e.target.value)}
         placeholder="Temat bajki"
         className="input-element"
+        maxLength={300}
       />
+      {theme.length > 250 && (
+        <p className="text-red-400">{theme.length} / 300</p>
+      )}
       <select
         name="age"
         value={age}

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Cinzel_Decorative } from "next/font/google";
 import { Amatic_SC } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 import MainHeader from "@/components/main-header/header";
 
@@ -30,10 +31,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${cinzel.className} antialiased`}>
-        <MainHeader></MainHeader>
+      <body
+        className={` ${cinzel.className} antialiased flex flex-col min-h-screen`}
+      >
+        <MainHeader />
         <main>{children}</main>
-        <footer></footer>
+        <Footer />
       </body>
     </html>
   );

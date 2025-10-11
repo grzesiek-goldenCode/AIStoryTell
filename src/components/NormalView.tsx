@@ -3,9 +3,12 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/Button";
 import { StoryProps } from "@/types";
+import StoryViewModal from "./StoryViewModal";
 
 export default function NormalView({ story, title }: StoryProps) {
   const [index, setActiveIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const savedStory = localStorage.getItem("story");
 
   function prev() {
     if (index > 0) {
@@ -67,6 +70,19 @@ export default function NormalView({ story, title }: StoryProps) {
       <p>
         {index + 1} / {story.length}
       </p>
+      {story && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="text-pink-600 hover:text-pink-700 font-medium transition"
+        >
+          Podgląd bajki
+        </button>
+      )}
+      <StoryViewModal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        story={savedStory}
+      />
       {index === story.length - 1 && (
         <Button>
           <a href="/story">Nowa Bajka</a>

@@ -55,3 +55,25 @@ body {
   margin-bottom: 10;
   margin-top: auto;
 }
+
+.scrollbar-hidden {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari i Edge */
+}
+.story-container {
+  scroll-behavior: smooth;
+}
+
+.story-container::after {
+  content: "";
+  position: sticky;
+  bottom: 0;
+  height: 2.5rem;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.9));
+  pointer-events: none;
+  display: block;
+}

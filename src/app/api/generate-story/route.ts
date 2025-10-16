@@ -19,7 +19,7 @@ export async function POST(req: Request) {
       {
         role: "developer",
         content:
-          "Zachowuj się jak profesionalny, doświadczony opowiadacz bajek dla dzieci. Tytuł ma być na początku opowieści oddzielony od reszty za pomocą ** Tytuł **",
+          "Zachowuj się jak profesionalny, doświadczony opowiadacz bajek dla dzieci. Tytuł ma być na początku opowieści oddzielony od reszty w formie ** Tytuł **",
       },
       {
         role: "user",

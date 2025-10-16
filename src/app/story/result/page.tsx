@@ -12,7 +12,9 @@ export default function StoryView() {
     "Pracujemy nad Twoją bajką...",
   ]);
   const [title, setTitle] = useState<string>("Twoja bajka");
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Get story title and text from generated story. Helper function SplitTitle()
   useEffect(() => {
     const savedStory = localStorage.getItem("story");
     const [title, storyText] = SplitTitle(
@@ -25,8 +27,7 @@ export default function StoryView() {
     }
   }, []);
 
-  const [isMobile, setIsMobile] = useState(false);
-
+  // Check window width to render proper component
   useEffect(() => {
     const checkScreen = () => setIsMobile(window.innerWidth < 1280);
     checkScreen();

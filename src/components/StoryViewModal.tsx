@@ -36,7 +36,7 @@ export default function StoryPreviewModal({
       transition-opacity duration-500 ease-out
       ${isOpen ? "opacity-100" : "opacity-0"}`}
     >
-      {/* ✨ Gwiazdki w tle */}
+      {/* stars in background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(25)].map((_, i) => (
           <span
@@ -52,19 +52,19 @@ export default function StoryPreviewModal({
         ))}
       </div>
 
-      {/* 🪄 Karta z bajką */}
+      {/* story card */}
       <div
         onClick={(e) => e.stopPropagation()}
         className={`relative bg-white/90 text-gray-800 rounded-3xl shadow-2xl max-w-2xl w-[90%] max-h-[85vh] overflow-y-auto p-6 prose prose-lg border border-pink-200/40
           transform transition-all duration-500 ease-out
           ${isOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"}
-          before:content-[''] before:absolute before:inset-0 before:rounded-3xl before:shadow-[0_0_40px_10px_rgba(236,72,153,0.3)] before:-z-10`}
+          before:content-[''] before:absolute before:inset-0 before:rounded-3xl  before:-z-10`}
       >
         <h2 className="text-center text-2xl font-bold mb-4 text-pink-600 drop-shadow-sm">
           ✨ {title} ✨
         </h2>
 
-        <article>{storyText}</article>
+        <article className="font-crimsonPro">{storyText}</article>
         <div className="flex items-center justify-center m-3">
           <button
             onClick={onClose}

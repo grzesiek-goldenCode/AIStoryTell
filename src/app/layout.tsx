@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Cinzel_Decorative } from "next/font/google";
-import { Amatic_SC } from "next/font/google";
+import { Cinzel_Decorative, Crimson_Pro, Amatic_SC } from "next/font/google";
+
 import "./globals.css";
 import Footer from "@/components/Footer";
 
@@ -17,6 +17,12 @@ const amaticSC = Amatic_SC({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-amaticSC",
+});
+
+const crimsonPro = Crimson_Pro({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-crimsonPro",
 });
 
 export const metadata: Metadata = {

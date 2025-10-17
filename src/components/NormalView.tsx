@@ -23,7 +23,7 @@ export default function NormalView({ story, title }: StoryProps) {
   }
   return (
     <div className="flex flex-col items-center justify-center ">
-      <h2 className="mt-10 text-4xl font-bold">{title}</h2>
+      <h2 className="mt-10 text-6xl  font-crimsonPro capitalize ">{title}</h2>
       <div className="w-full mx-100 flex justify-evenly items-center h-[70vh]">
         <div
           className={`glass-card ${
@@ -51,6 +51,13 @@ export default function NormalView({ story, title }: StoryProps) {
             >
               {story[index]}
             </motion.div>
+            {index === story.length - 1 && (
+              <div className="scale-50 mt-5">
+                <Button>
+                  <a href="/story">Nowa Bajka</a>
+                </Button>
+              </div>
+            )}
           </article>
         </AnimatePresence>
         <div
@@ -67,15 +74,16 @@ export default function NormalView({ story, title }: StoryProps) {
           </button>
         </div>
       </div>
+
       <p>
         {index + 1} / {story.length}
       </p>
       {story && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="text-pink-600 hover:text-pink-700 font-medium transition"
-        >
-          Podgląd bajki
+        <button onClick={() => setIsOpen(true)}>
+          <span className="flex flex-col items-center justify-center hover:scale-110">
+            <p>Podgląd bajki</p>
+            <p>📖</p>
+          </span>
         </button>
       )}
       <StoryViewModal
@@ -83,11 +91,6 @@ export default function NormalView({ story, title }: StoryProps) {
         onClose={() => setIsOpen(false)}
         story={savedStory}
       />
-      {index === story.length - 1 && (
-        <Button>
-          <a href="/story">Nowa Bajka</a>
-        </Button>
-      )}
     </div>
   );
 }

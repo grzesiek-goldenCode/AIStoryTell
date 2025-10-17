@@ -1,16 +1,19 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Virtual } from "swiper/modules";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/virtual";
 import { StoryProps } from "@/types";
 import Button from "./Button";
+import StoryViewModal from "./StoryViewModal";
 
 // Story component for screen width less than 1280. Need split story and title. Use Swiper for touch screen page moving
 
 export default function MobileView({ story, title }: StoryProps) {
   const swiperRef = useRef<any>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const savedStory = localStorage.getItem("story");
 
   return (
     <div className="flex flex-col items-center justify-center ">
@@ -65,10 +68,20 @@ export default function MobileView({ story, title }: StoryProps) {
 
           <div className="flex justify-between pt-6">
             <button onClick={() => swiperRef.current?.slidePrev()}>←</button>
-
+            <button
+              onClick={() => setIsOpen(true)}
+              className=" transition hover:scale-110 "
+            >
+              📖
+            </button>
             <button onClick={() => swiperRef.current?.slideNext()}>→</button>
           </div>
         </article>
+        <StoryViewModal
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          story={savedStory}
+        />
       </div>
     </div>
   );

@@ -29,9 +29,13 @@ export default function StoryPage() {
 
         const result = await res.json();
 
+        if (res.status === 429) {
+          setError("Osiągnięto limit bajek na dziś, spróbuj ponownie jutro");
+          return;
+        }
+
         if (!res.ok) {
-          const data = await res.json();
-          alert(data.error);
+          alert(result.error);
           return;
         }
 

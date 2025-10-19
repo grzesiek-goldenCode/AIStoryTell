@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
+    "@upstash/ratelimit": "^2.0.6",
+    "@upstash/redis": "^1.35.6",
     "framer-motion": "^12.23.12",
     "lottie-react": "^2.4.1",
     "next": "15.5.2",

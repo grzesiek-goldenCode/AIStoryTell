@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import { storyLimiter } from "@/lib/upstash";
+import { headers } from "next/headers";
 
 const client = new OpenAI();
 
@@ -11,6 +13,11 @@ export async function POST(req: Request) {
       JSON.stringify({ error: "Przekroczono limit znaków" }),
       { status: 400 }
     );
+  }
+  const ip = req.headers.get("x-forwarded-for") || "unknown";
+  const { success } = await storyLimiter.limit(ip);
+  if (!success) {
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
   }
   const response = await client.responses.create({
     model: "gpt-4o-mini",
